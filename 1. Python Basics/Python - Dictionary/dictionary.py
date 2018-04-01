@@ -70,3 +70,8 @@ odd_squares = {x: x*x for x in range(11) if x%2 == 1}
 # Output: {1: 1, 3: 9, 5: 25, 7: 49, 9: 81}
 print(odd_squares)
 
+# Mapping two lists to a dictionary:
+keys = ["a", "b", "c"] 
+values = [1, 2, 3] 
+mydict = dict(zip(keys, values)) 
+print(mydict)
