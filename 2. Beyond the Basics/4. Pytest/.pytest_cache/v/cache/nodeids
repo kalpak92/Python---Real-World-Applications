@@ -1,0 +1,8 @@
+[
+  "test_basic.py::test_func",
+  "test_class.py::TestClass::()::test_one",
+  "test_class.py::TestClass::()::test_two",
+  "test_sample.py::test_capital_case",
+  "test_sample.py::test_raises_exception_on_non_string_arguments",
+  "test_sysexit.py::test_mytest"
+]
