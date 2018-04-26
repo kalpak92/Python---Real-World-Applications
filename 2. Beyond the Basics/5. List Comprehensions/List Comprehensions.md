@@ -161,3 +161,141 @@ Output:
 
 [![eg3_output](https://www.analyticsvidhya.com/wp-content/uploads/2016/01/eg3_output.png)](https://www.analyticsvidhya.com/wp-content/uploads/2016/01/eg3_output.png)
 
+## The Time advantage
+
+In this section, we will find out the time taken by LC in comparison to similar techniques. We will also try to unravel the situations in which LC works better and where it should be avoided. Along with runtime, we will compare the readability of the different approaches.
+
+Before jumping into comparing the time taken by different techniques, lets take a refresher on the Python map function.
+
+### map function
+
+It is used to apply a function to each element of a list or any other iterable.
+**Syntax: map(function, Python iterable)**
+
+For example, we can multiply each element of a list of integers with the next number using the following code: 
+
+```python
+map(lambda x: x*(x+1), arr)
+```
+
+### Comparing Runtime
+
+An important part of this exercise is the ability to compare the running time of a code fragment. We will be using **%timeit**, an in-built magic function of iPython notebook environment. Alternatively, you can use the time or timeit modules.
+
+### A Simple Example
+
+Lets start with a simple example – squaring each element of a list. The Python codes and runtimes for each of the 3 implementations are:
+
+```python
+#Method 1: For-Loop
+def square_for(arr):
+    result = []
+    for i in arr:
+        result.append(i**2)
+    return result
+%timeit square_for(range(1,11))
+```
+
+Output:
+
+```python
+4.08 µs ± 50.1 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+```
+
+```python
+#Method 2: Map Function
+def square_map(arr):
+    return map(lambda x: x**2, arr)
+%timeit square_map(range(1,11))
+```
+
+Output:
+
+```python
+661 ns ± 1.74 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+```
+
+```python
+#Method 3: List comprehension:
+def square_lc(arr):
+    return [i**2 for i in arr]
+%timeit square_lc(range(1,11))
+```
+
+Output:
+
+```python
+3.57 µs ± 73.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+```
+
+**Readability:** Both LC and map functions are fairly simple and readable, but for-loop is a bit bulky but not much.
+
+So can we say LC is the fastest method? Not necessary! We can’t generalize our conclusions at this stage as it might be specific to the problem at hand. 
+
+Remember:
+
+- When all you’re doing is calling an already-defined function on each element, `map(f, lst)` is a little faster than the corresponding list comprehension `[f(x) for x in lst]`. To an experienced Python programmer, I think it’s clearer, too (though [Guido](https://www.quora.com/topic/Guido-van-Rossum-1) may disagree).
+
+- But when evaluating any other expression, `[some_expr for x in lst]`is faster and clearer than `map(lambda x: some_expr, lst)`, because the `map` incurs an extra function call for each element.
+
+  It’s also worth mentioning that Python 3’s `map` returns a generator (like Python 2’s `itertools.imap`) instead of a list.
+
+Let’s consider a slightly tricky example.
+
+### Taking a step forward
+
+Let’s include a catch in above problem. What if we want the square of only even numbers in the list? Now, the three functions would look like:
+
+```python
+#Method 1: For-Loop
+def square_even_for(arr):
+    result = []
+    for i in arr:
+        if i%2 == 0:
+            result.append(i**2)
+    return result
+%timeit square_even_for(range(1,11))
+```
+
+Output:
+
+```python
+2.83 µs ± 15.6 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+```
+
+```python
+#Method 2: Map Function
+def square_even_map(arr):
+    return filter(lambda x: x is not None,map(lambda x: x**2 if x%2==0 else None, arr))
+%timeit square_even_map(range(1,11))
+```
+
+Output:
+
+```python
+891 ns ± 10.3 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+```
+
+```python
+#Method 3: List comprehension:
+def square_even_lc(arr):
+    return [i**2 for i in arr if i%2==0]
+%timeit square_even_lc(range(1,11))
+```
+
+Output:
+
+```python
+2.66 µs ± 34.1 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+```
+
+**Readability:** LC is most concise and elegant. Map function became cumbersome with additional lambda function and for-loop is no better.
+
+Let’s summarize our findings now:
+
+1. LC is **fast and elegant in cases where simple expressions are involved**. But if complex functions are required, map and LC would perform nearly the same
+2. FOR-loop is bulkier in general, but it is fastest if storing is not required. So should be **preferred in cases where we need to simply iterate and perform operations.**
+
+I have compared the runtime of 3 examples we saw earlier and the results are:
+[![runtime comparison](https://www.analyticsvidhya.com/wp-content/uploads/2016/01/runtime-comparison.png)](https://www.analyticsvidhya.com/wp-content/uploads/2016/01/runtime-comparison.png)
+
