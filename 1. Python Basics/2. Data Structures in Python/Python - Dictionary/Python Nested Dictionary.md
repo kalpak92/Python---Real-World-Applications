@@ -84,8 +84,6 @@ people[3]['married'] = 'No'
 print(people[3])
 ```
 
-[](https://www.datacamp.com/)
-
 When we run above program, it will output:
 
 ```python

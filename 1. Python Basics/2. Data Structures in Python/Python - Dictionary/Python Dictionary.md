@@ -1,6 +1,6 @@
 # Python Dictionary
 
-Python dictionary is an unordered collection of items. While other compound data types have only value as an element, a dictionary has a key: value pair.
+Python dictionary is an **unordered collection** of items. While other compound data types have only value as an element, a dictionary has a key: value pair.
 
 Dictionaries are optimized to retrieve values when the key is known.
 
@@ -33,7 +33,7 @@ Creating a dictionary is as simple as placing items inside curly braces {} separ
 
 An item has a key and the corresponding value expressed as a pair, key: value.
 
-While values can be of any data type and can repeat, keys must be of immutable type ([string](https://www.programiz.com/python-programming/string), [number](https://www.programiz.com/python-programming/numbers) or [tuple](https://www.programiz.com/python-programming/tuple) with immutable elements) and must be unique.
+While values can be of any data type and can repeat, keys must be of immutable type (string, number or tuple with immutable elements) and must be unique.
 
 ```python
 # empty dictionary

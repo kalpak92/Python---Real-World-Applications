@@ -1,8 +1,10 @@
 # Python Sets
 
-A set is an unordered collection of items. Every element is unique (no duplicates) and must be immutable (which cannot be changed).
+A set is an **unordered** collection of items.
 
-However, the set itself is mutable. We can add or remove items from it.
+ *Every element is **unique** (no duplicates) and must be **immutable** (which cannot be changed).*
+
+However, **the set itself is mutable.** We can add or remove items from it.
 
 Sets can be used to perform mathematical set operations like union, intersection, symmetric difference etc.
 
@@ -12,7 +14,7 @@ Sets can be used to perform mathematical set operations like union, intersection
 
 A set is created by placing all the items (elements) inside curly braces {}, separated by comma or by using the built-in function `set()`.
 
-It can have any number of items and they may be of different types (integer, float, tuple, string etc.). But a set cannot have a mutable element, like [list](https://www.programiz.com/python-programming/list), set or [dictionary](https://www.programiz.com/python-programming/dictionary), as its element.
+It can have any number of items and they may be of different types (integer, float, tuple, string etc. ). ***But a set cannot have a mutable element, like list, set or dictionary, as its element.***
 
 ```python
 # set of integers
@@ -72,7 +74,7 @@ Sets are mutable. But since they are unordered, indexing have no meaning.
 
 We cannot access or change an element of set using indexing or slicing. Set does not support it.
 
-We can add single element using the `add()` method and multiple elements using the `update()` method. The `update()` method can take [tuples](https://www.programiz.com/python-programming/tuple), lists, [strings](https://www.programiz.com/python-programming/string) or other sets as its argument. In all cases, duplicates are avoided.
+We can add single element using the `add()` method and multiple elements using the `update()` method. The `update()` method can take tuples, lists, strings or other sets as its argument. In all cases, duplicates are avoided.
 
 ```python
 # initialize my_set
@@ -384,9 +386,9 @@ Built-in functions like `all()`, `any()`, `enumerate()`, `len()`, `max()`, `min(
 
 ## Python Frozenset
 
-Frozenset is a new class that has the characteristics of a set, but its elements cannot be changed once assigned. While tuples are immutable lists, frozensets are immutable sets.
+Frozenset is a new class that has the characteristics of a set, but its elements cannot be changed once assigned. While tuples are immutable lists, **frozensets are immutable sets**.
 
-Sets being mutable are unhashable, so they can't be used as dictionary keys. On the other hand, frozensets are hashable and can be used as keys to a dictionary.
+Sets being mutable are unhashable, so they can't be used as dictionary keys. On the other hand, **frozensets are hashable and can be used as keys to a dictionary.**
 
 Frozensets can be created using the function `frozenset()`.
 

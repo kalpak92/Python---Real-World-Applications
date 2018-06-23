@@ -6,9 +6,11 @@ There's another datatype in Python called a `tuple` :
 
 It's exactly like a `list`  except:
 
-\1. You use round brackets instead of square brackets to define it.
+1. You use **round brackets** instead of square brackets to define it.
 
-\2. It's not mutable which means you can append or remove items from a list, but not from a tuple. Trying to do that will throw an error:
+2. It's **not mutable** which means you can append or remove items from a list, but not from a tuple. 
+
+Trying to do that will throw an error:
 
 ```python
 >>> mytuple = (1, 2, "Three") 
@@ -26,10 +28,10 @@ Since, tuples are quite similiar to lists, both of them are used in similar situ
 
 However, there are certain advantages of implementing a tuple over a list. Below listed are some of the main advantages:
 
-- We generally use tuple for heterogeneous (different) datatypes and list for homogeneous (similar) datatypes.
-- Since tuple are immutable, iterating through tuple is faster than with list. So there is a slight performance boost.
-- Tuples that contain immutable elements can be used as key for a dictionary. With list, this is not possible.
-- If you have data that doesn't change, implementing it as tuple will guarantee that it remains write-protected.
+- We generally use **tuple for heterogeneous** (different) datatypes and list for homogeneous (similar) datatypes.
+- Since tuple are immutable, iterating through **tuple is faster** than with list. So there is a slight performance boost.
+- Tuples that contain immutable elements can be used as **key for a dictionary**. With list, this is not possible.
+- If you have data that doesn't change, implementing it as tuple will guarantee that it remains **write-protected**.
 
 ### Creating a Tuple
 
@@ -90,7 +92,7 @@ dog
 
 Creating a tuple with one element is a bit tricky.
 
-Having one element within parentheses is not enough. We will need a trailing comma to indicate that it is in fact a tuple.
+Having one element within parentheses is not enough. ***We will need a trailing comma to indicate that it is in fact a tuple.*** This is because it will be look like a mathematical number with some extra parenthesis.
 
 ```python
 # only parentheses is not enough
