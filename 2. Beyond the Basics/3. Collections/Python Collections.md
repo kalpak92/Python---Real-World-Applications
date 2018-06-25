@@ -24,7 +24,9 @@ This module implements specialized container datatypes providing alternatives to
 
 **Unlike `dict`, with `defaultdict` you do not need to check whether a key is present or not. **
 
-Usually, a Python dictionary throws a `KeyError` if you try to get an item with a key that is not currently in the dictionary. The `defaultdict` in contrast will simply create any items that you try to access (provided of course they do not exist yet). To create such a "default" item, it calls the function object that you pass in the constructor (more precisely, it's an arbitrary "callable" object, which includes function and type objects). 
+Usually, a Python dictionary throws a `KeyError` if you try to get an item with a key that is not currently in the dictionary. 
+
+The `defaultdict` in contrast will simply create any items that you try to access (provided of course they do not exist yet). To create such a "default" item, it calls the function object that you pass in the constructor (more precisely, it's an arbitrary "callable" object, which includes function and type objects). 
 
 ```python
 users = {'bob': 'coder'}
@@ -92,7 +94,7 @@ KeyError                                  Traceback (most recent call last)
 KeyError: 'mike'
 ```
 
-Using defaultdict
+**Using defaultdict**
 
 ```python
 challenges = defaultdict(list)
