@@ -1,6 +1,6 @@
 # Python: Collections
 
-Python ships with a module that contains a number of container data types called Collections. 
+Python ships with a module that contains a number of container data types called Collections.
 
 The ones which we will talk about are:
 
@@ -24,9 +24,9 @@ This module implements specialized container datatypes providing alternatives to
 
 **Unlike `dict`, with `defaultdict` you do not need to check whether a key is present or not. **
 
-Usually, a Python dictionary throws a `KeyError` if you try to get an item with a key that is not currently in the dictionary. 
+Usually, a Python dictionary throws a `KeyError` if you try to get an item with a key that is not currently in the dictionary.
 
-The `defaultdict` in contrast will simply create any items that you try to access (provided of course they do not exist yet). To create such a "default" item, it calls the function object that you pass in the constructor (more precisely, it's an arbitrary "callable" object, which includes function and type objects). 
+The `defaultdict` in contrast will simply create any items that you try to access (provided of course they do not exist yet). To create such a "default" item, it calls the function object that you pass in the constructor (more precisely, it's an arbitrary "callable" object, which includes function and type objects).
 
 ```python
 users = {'bob': 'coder'}
@@ -191,7 +191,7 @@ Setting the `default_factory` to [`set`](https://docs.python.org/2/library/stdty
 
 ## 2. `OrderedDict`
 
-`OrderedDict` keeps its entries sorted as they are initially inserted. Overwriting a value of an existing key doesn’t change the position of that key. However, deleting and reinserting an entry moves the key to the end of the dictionary.
+`OrderedDict` keeps its entries **sorted as they are initially inserted**. Overwriting a value of an existing key doesn’t change the position of that key. However, deleting and reinserting an entry moves the key to the end of the dictionary.
 
 **Problem:**
 
@@ -308,9 +308,9 @@ print(line_count)
 One of my favorites. Say you want to count the most common words in a text:
 
 ```python
-words = """Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
-the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
+words = """Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
 electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
 Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
 PageMaker including versions of Lorem Ipsum""".split()
@@ -379,7 +379,7 @@ Counter({'a': 3, 'b': 2})
 
 ## 4. `deque`
 
-`deque` provides you with a double ended queue which means that you can append and delete elements from either side of the queue. 
+`deque` provides you with a double ended queue which means that you can append and delete elements from either side of the queue.
 
 Deques are a generalization of stacks and queues (the name is pronounced “deck” and is short for “double-ended queue”). Deques support thread-safe, memory efficient appends and pops from either side of the deque with approximately the same O(1) performance in either direction.
 
@@ -436,7 +436,7 @@ We can also limit the amount of items a deque can hold. By doing this when we ac
 d = deque(maxlen=30)
 ```
 
-Now whenever you insert values after 30, the leftmost value will be popped from the list. 
+Now whenever you insert values after 30, the leftmost value will be popped from the list.
 
 You can also expand the list in any direction with new values:
 
@@ -478,7 +478,7 @@ print(man[0])
 # Output: Ali
 ```
 
-Well, so now what are `namedtuples`? 
+Well, so now what are `namedtuples`?
 
 Named tuples assign meaning to each position in a tuple and allow for more readable, self-documenting code. They can be used wherever regular tuples are used, and they add the ability to access fields by name instead of position index.
 
