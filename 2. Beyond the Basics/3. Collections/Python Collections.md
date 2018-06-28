@@ -11,10 +11,11 @@ The ones which we will talk about are:
 - `namedtuple`
 - `enum.Enum` (outside of the module; Python 3.4+)
 
-This module implements specialized container datatypes providing alternatives to Python’s general purpose built-in containers, [`dict`](https://docs.python.org/2/library/stdtypes.html#dict), `list`, [`set`](https://docs.python.org/2/library/stdtypes.html#set), and [`tuple`](https://docs.python.org/2/library/functions.html#tuple).
+This module implements specialized container datatypes providing alternatives to Python’s general purpose built-in containers, `dict`, `list`, `set`, and `tuple`.
 
-| [`namedtuple()`](https://docs.python.org/2/library/collections.html#collections.namedtuple) | factory function for creating tuple subclasses with named fields | New in version 2.6. |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------- |
+|                          Data Type                           | Description                                                  | From Version        |
+| :----------------------------------------------------------: | ------------------------------------------------------------ | ------------------- |
+|                        `namedtuple()`                        | factory function for creating tuple subclasses with named fields | New in version 2.6. |
 | [`deque`](https://docs.python.org/2/library/collections.html#collections.deque) | list-like container with fast appends and pops on either end | New in version 2.4. |
 | [`Counter`](https://docs.python.org/2/library/collections.html#collections.Counter) | dict subclass for counting hashable objects                  | New in version 2.7. |
 | [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict) | dict subclass that remembers the order entries were added    | New in version 2.7. |
@@ -150,7 +151,9 @@ Using `list` as the `default_factory`, it is easy to group a sequence of key-val
 [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
 ```
 
-When each key is encountered for the first time, it is not already in the mapping; so an entry is automatically created using the `default_factory` function which returns an empty `list`. The `list.append()` operation then attaches the value to the new list. When keys are encountered again, the look-up proceeds normally (returning the list for that key) and the `list.append()` operation adds another value to the list. This technique is simpler and faster than an equivalent technique using [`dict.setdefault()`](https://docs.python.org/2/library/stdtypes.html#dict.setdefault):
+When each key is encountered for the first time, it is not already in the mapping; so an entry is automatically created using the `default_factory` function which returns an empty `list`. The `list.append()` operation then attaches the value to the new list. When keys are encountered again, the look-up proceeds normally (returning the list for that key) and the `list.append()` operation adds another value to the list. 
+
+This technique is simpler and faster than an equivalent technique using [`dict.setdefault()`](https://docs.python.org/2/library/stdtypes.html#dict.setdefault):
 
 ```python
 >>> d = {}
