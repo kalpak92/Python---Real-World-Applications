@@ -21,7 +21,7 @@ This module implements specialized container datatypes providing alternatives to
 | [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict) | dict subclass that remembers the order entries were added    | New in version 2.7. |
 | [`defaultdict`](https://docs.python.org/2/library/collections.html#collections.defaultdict) | dict subclass that calls a factory function to supply missing values | New in version 2.5. |
 
-## **1. `defaultdict`**
+## 1. defaultdict
 
 **Unlike `dict`, with `defaultdict` you do not need to check whether a key is present or not. **
 
@@ -192,7 +192,7 @@ Setting the `default_factory` to [`set`](https://docs.python.org/2/library/stdty
 
 
 
-## 2. `OrderedDict`
+## 2. OrderedDict
 
 `OrderedDict` keeps its entries **sorted as they are initially inserted**. Overwriting a value of an existing key doesn’t change the position of that key. However, deleting and reinserting an entry moves the key to the end of the dictionary.
 
@@ -202,6 +202,7 @@ Setting the `default_factory` to [`set`](https://docs.python.org/2/library/stdty
 colours =  {"Red" : 198, "Green" : 170, "Blue" : 160}
 for key, value in colours.items():
     print(key, value)
+    
 # Output:
 #   Green 170
 #   Blue 160
@@ -217,6 +218,8 @@ from collections import OrderedDict
 colours = OrderedDict([("Red", 198), ("Green", 170), ("Blue", 160)])
 for key, value in colours.items():
     print(key, value)
+    
+    
 # Output:
 #   Red 198
 #   Green 170
@@ -224,17 +227,35 @@ for key, value in colours.items():
 # Insertion order is preserved
 ```
 
-`OrderedDict.``popitem`(*last=True*)
+### Functions
 
-The [`popitem()`](https://docs.python.org/2/library/collections.html#collections.OrderedDict.popitem) method for ordered dictionaries returns and removes a (key, value) pair. The pairs are returned in LIFO order if *last* is true or FIFO order if false.
+- OrderedDict.popitem (*last=True*)
 
-In addition to the usual mapping methods, ordered dictionaries also support reverse iteration using [`reversed()`](https://docs.python.org/2/library/functions.html#reversed).
+  The [`popitem()`](https://docs.python.org/2/library/collections.html#collections.OrderedDict.popitem) method for ordered dictionaries returns and removes a (key, value) pair. The pairs are returned in LIFO order if *last* is true or FIFO order if false.
 
-Equality tests between [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict) objects are order-sensitive and are implemented as `list(od1.items())==list(od2.items())`. Equality tests between [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict)objects and other [`Mapping`](https://docs.python.org/2/library/collections.html#collections.Mapping) objects are order-insensitive like regular dictionaries. This allows [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict) objects to be substituted anywhere a regular dictionary is used.
+- OrderedDict.reverse()
 
-## 3. `counter`
+  Ordered dictionaries also support reverse iteration using [`reversed()`](https://docs.python.org/2/library/functions.html#reversed).
 
-A [`Counter`](https://docs.python.org/2/library/collections.html#collections.Counter) is a [`dict`](https://docs.python.org/2/library/stdtypes.html#dict) subclass for counting hashable objects. It is an unordered collection where elements are stored as dictionary keys and their counts are stored as dictionary values. Counts are allowed to be any integer value including zero or negative counts. The [`Counter`](https://docs.python.org/2/library/collections.html#collections.Counter) class is similar to bags or multisets in other languages.
+- Equality tests
+
+  Equality tests between [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict) objects are order-sensitive and are implemented as `list(od1.items())==list(od2.items())`. 
+
+  Equality tests between [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict)objects and other [`Mapping`](https://docs.python.org/2/library/collections.html#collections.Mapping) objects are **order-insensitive** like regular dictionaries. This allows [`OrderedDict`](https://docs.python.org/2/library/collections.html#collections.OrderedDict) objects to be substituted anywhere a regular dictionary is used.
+
+## 3. counter
+
+A [`Counter`](https://docs.python.org/2/library/collections.html#collections.Counter) is a **`dict` subclass** for counting hashable objects. 
+
+#### What do u mean by hashable ?
+
+> An object is *hashable* if it has a hash value which never changes during its lifetime (it needs a [`__hash__()`](https://docs.python.org/3.6/reference/datamodel.html#object.__hash__)method), and can be compared to other objects (it needs an [`__eq__()`](https://docs.python.org/3.6/reference/datamodel.html#object.__eq__) method). Hashable objects which compare equal must have the same hash value.
+>
+> Hashability makes an object usable as a dictionary key and a set member, because these data structures use the hash value internally.
+>
+> All of Python’s immutable built-in objects are hashable; mutable containers (such as lists or dictionaries) are not. Objects which are instances of user-defined classes are hashable by default. They all compare unequal (except with themselves), and their hash value is derived from their [`id()`](https://docs.python.org/3.6/library/functions.html#id).
+
+***It is an unordered collection where elements are stored as dictionary keys and their counts are stored as dictionary values.*** Counts are allowed to be any integer value including zero or negative counts. The `Counter` class is similar to bags or multisets in other languages.
 
 Elements are counted from an *iterable* or initialized from another *mapping* (or counter):
 
@@ -260,7 +281,7 @@ c['sausage'] = 0                        # counter entry with a zero count
 del c['sausage']                        # del actually removes the entry
 ```
 
-### Common patterns for working with [`Counter`](https://docs.python.org/2/library/collections.html#collections.Counter) objects
+#### Common patterns for working with `Counter` objects
 
 ```python
 sum(c.values())                 # total of all counts
@@ -380,7 +401,7 @@ Counter({'a': 3, 'b': 2})
 
 
 
-## 4. `deque`
+## 4. deque
 
 `deque` provides you with a double ended queue which means that you can append and delete elements from either side of the queue.
 
