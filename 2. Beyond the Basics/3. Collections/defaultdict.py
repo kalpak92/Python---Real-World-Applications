@@ -17,7 +17,7 @@ for k, v in s:
 
 print(d.items())
 
-# Setting the default_factory to int makes the defaultdict useful for counting 
+# Setting the default_factory to int makes the defaultdict useful for counting
 # (like a bag or multiset in other languages):
 print ("\nDefaultdict - Counting")
 s = 'mississippi'
