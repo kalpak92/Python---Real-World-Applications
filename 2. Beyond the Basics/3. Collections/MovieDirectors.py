@@ -29,11 +29,13 @@ def get_movies_by_director(data=movies_csv):
     return directors
 
 directors = get_movies_by_director()
-
+# print (directors)
+print ("Movies by Christopher Nolan are: ")
 print(directors['Christopher Nolan'])
 
 cnt = Counter()
 for director, movies in directors.items():
     cnt[director] += len(movies)
-
+# print (cnt)
+print ("\n\nTop 5 directors are:")
 print(cnt.most_common(5))
