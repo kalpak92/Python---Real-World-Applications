@@ -403,7 +403,7 @@ Counter({'a': 3, 'b': 2})
 
 ## 4. deque
 
-`deque` provides you with a double ended queue which means that you can append and delete elements from either side of the queue.
+`deque` provides you with a **double ended queue** which means that you can append and delete elements from either side of the queue.
 
 Deques are a generalization of stacks and queues (the name is pronounced “deck” and is short for “double-ended queue”). Deques support thread-safe, memory efficient appends and pops from either side of the deque with approximately the same O(1) performance in either direction.
 
